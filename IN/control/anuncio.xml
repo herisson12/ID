@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<anuncio id="1" nome="Nome_Teste_01" site="Site_Teste_01"
+		descricao="Descricao_Teste_01" local="Local_Teste_01" telefone="Telefone_Teste_01"
+		categoria="Categoria_Teste_01" />
+	<anuncio id="2" nome="Nome_Teste_02" site="Site_Teste_02"
+		descricao="Descricao_Teste_02" local="Local_Teste_02" telefone="Telefone_Teste_02"
+		categoria="Categoria_Teste_02" />
+	<anuncio id="3" nome="Nome_Teste_03" site="Site_Teste_03"
+		descricao="Descricao_Teste_03" local="Local_Teste_03" telefone="Telefone_Teste_03"
+		categoria="Categoria_Teste_03" />
+</dataset>

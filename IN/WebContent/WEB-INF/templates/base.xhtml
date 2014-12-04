@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title><ui:insert name="title">Inovar Divulgações</ui:insert></title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="padrao.css" />
+	<h:outputStylesheet library="css" name="listar.css" />
+	<h:outputScript library="js" name="jquery.min.js" />
+</h:head>
+<h:body>
+
+	<ui:include src="/WEB-INF/templates/menu.xhtml" />
+
+	<div class="container content">
+		<div id="myEntrar" class="modal fade bs-example-modal-sm"
+			tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span> <span class="sr-only">Fechar</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Entrar</h4>
+					</div>
+					<h:form>
+						<div class="form-group col-md-12 ">
+							<h:outputLabel value="Login" />
+							<h:inputText id="txtLogin" styleClass="form-control"
+								value="#{loginMB.login}" />
+						</div>
+						<div class="form-group col-md-12">
+							<h:outputLabel value="Senha:" />
+							<h:inputSecret id="txtSenha" styleClass="form-control"
+								value="#{loginMB.senha}" />
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Fechar</button>
+							<h:commandButton actionListener="#{loginMB.fazLogin}"
+								styleClass="btn btn-default" value="Entrar" />
+						</div>
+					</h:form>
+				</div>
+			</div>
+		</div>
+		<ui:insert name="content" />
+	</div>
+	<ui:include src="/WEB-INF/templates/rodape.xhtml" />
+	<div class="rodape">
+		<ui:insert name="rodape" />
+	</div>
+	<h:outputScript library="js" name="bootstrap.min.js" />
+</h:body>
+</html>

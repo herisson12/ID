@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="title">Inovar Divulgacões</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="contato.css" />
+		<div class="panel panel-default col-md-12">
+			<div class="panel-body">
+				<h:form role="form" enctype="multipart/form-data">
+					<h:inputHidden value="#{contatoMb.contato.id}" />
+					<h:panelGroup rendered="#{not empty contatoMb.contato.id}">
+						<div class="form-group col-md-12">
+							<h:outputLabel value="Código" />
+							<h:inputText readonly="true" value="#{contatoMb.contato.id}"
+								styleClass="form-control" />
+						</div>
+					</h:panelGroup>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Nome" />
+						<h:inputText value="#{contatoMb.contato.nome}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="E-Mail" />
+						<h:inputText value="#{contatoMb.contato.email}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Assunto" />
+						<h:inputText value="#{contatoMb.contato.assunto}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-12">
+						<h:outputLabel value="Mensagem" />
+						<h:inputTextarea value="#{contatoMb.contato.mensagem}"
+							class="form-control" rows="6" />
+					</div>
+					<h:commandButton action="#{contatoMb.salvar}"
+						styleClass="btn btn-default botaoEnviar" value="Enviar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="page-title">
+		<h1>
+			administrador - <small>lista</small>
+		</h1>
+	</ui:define>
+	<ui:define name="content">
+		<div class="panel panel-default col-md-12">
+			<div class="panel-body">
+				<h:form>
+					<h:dataTable value="#{administradorMb.listAdministradors}"
+						var="administrador" styleClass="table">
+						<h:column>
+							<f:facet name="header">Nº</f:facet>
+							<h:outputText value="#{administrador.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"> Nome</f:facet>
+							<h:outputText value="#{administrador.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Sobrenome</f:facet>
+							<h:outputText value="#{administrador.sobrenome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">CPF</f:facet>
+							<h:outputText value="#{administrador.cpf}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">RG</f:facet>
+							<h:outputText value="#{administrador.rg}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">E-Mail</f:facet>
+							<h:outputText value="#{administrador.email}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Telefone</f:facet>
+							<h:outputText value="#{administrador.telefone}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Usuário</f:facet>
+							<h:outputText value="#{administrador.usuario}" />
+						</h:column>
+						<h:column>
+							<h:commandLink
+								action="#{administradorMb.carregarEdicao(administrador.id)}">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</h:commandLink>
+							<h:commandLink
+								action="#{administradorMb.excluir(administrador.id)}">
+								<span class="glyphicon glyphicon-trash"></span>
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

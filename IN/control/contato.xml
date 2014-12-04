@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<contato id="1" nome="Contato_Teste_01" email="Email_Teste_01"
+		assunto="Assunto_Teste_01" mensagem="Mensagem_Teste_01" />
+	<contato id="2" nome="Contato_Teste_02" email="Email_Teste_02"
+		assunto="Assunto_Teste_02" mensagem="Mensagem_Teste_02" />
+	<contato id="3" nome="Contato_Teste_03" email="Email_Teste_03"
+		assunto="Assunto_Teste_03" mensagem="Mensagem_Teste_03" />
+</dataset>

@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<nav class="navbar  navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="collapse navbar-collapse">
+				<h:form>
+					<ul id="menu_principal" class="nav navbar-nav">
+						<li><h:link outcome="/index" value="Home" /></li>
+						<li><h:link outcome="/quemsomos" value="Quem Somos" /></li>
+						<li><h:link outcome="/contato" value="Contato" /></li>
+					</ul>
+				</h:form>
+				<h:form>
+					<ul id="menu_principal" class="nav navbar-nav">
+						<li><h:link outcome="/divulgacao" value="Divulgação" /></li>
+						<li><h:link rendered="#{loginMB.tipoLogin == 0}"
+								outcome="/cadastrarCliente" value="Cadastra-se" /></li>
+						<li><h:link rendered="#{loginMB.tipoLogin != 0}"
+								outcome="/cadastrarAnuncio" value="Cadastro de Anuncios" /></li>
+					</ul>
+				</h:form>
+				<h:panelGroup rendered="#{loginMB.tipoLogin == 0}">
+					<ul id="menu_principal" class="nav navbar-nav">
+						<li><a class="btn btn-lg" data-toggle="modal"
+							data-target="#myEntrar">Entrar</a></li>
+					</ul>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{loginMB.tipoLogin == 1}">
+					<ul id="menu_admin" class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+								ADM <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><h:link outcome="/admin/cadastrarAdministrador"
+										value="Cadastro de Administrador" /></li>
+								<li><h:link outcome="/admin/cadastrarCategoria"
+										value="Cadastrar de Categoria" /></li>
+								<li><h:link outcome="/admin/listaClientes"
+										value="Lista de Clientes" /></li>
+								<li><h:link outcome="/admin/listaAnuncios"
+										value="Lista de Anuncios" /></li>
+								<li><h:link outcome="/admin/listaAdmistrador"
+										value="Lista de Administradores" /></li>
+								<li><h:link outcome="/admin/listaCategoria"
+										value="Lista de Categorias" /></li>
+								<li><h:link outcome="/admin/listaContato"
+										value="Lista de Contatos" /></li>
+								<li><h:form>
+										<li><h:commandLink actionListener="#{loginMB.fazLogout}"
+												style="float:right;" styleClass="btn btn-default"
+												href="index.xhtml" value="Sair" /></li>
+									</h:form></li>
+							</ul></li>
+					</ul>
+				</h:panelGroup>
+
+				<h:panelGroup rendered="#{loginMB.tipoLogin == 2}">
+					<ul id="menu_admin" class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+								Cliente <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><h:link outcome="/cadastrarAnuncio"
+										value="Cadastro de Anuncios" /></li>
+								<li><h:link outcome="/contato"
+										value="Sugestões de Categorias" /></li>
+								<li><h:form>
+										<li><h:commandLink actionListener="#{loginMB.fazLogout}"
+												style="float:right;" styleClass="btn btn-default"
+												href="index.xhtml" value="Sair" /></li>
+									</h:form></li>
+							</ul></li>
+					</ul>
+				</h:panelGroup>
+			</div>
+		</div>
+	</nav>
+	<h:outputScript library="js" name="menu.js" />
+</ui:composition>

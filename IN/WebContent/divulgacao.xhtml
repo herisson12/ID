@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/base.xhtml">
+	<ui:define name="title">Inovar Divulgações</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="divulgacao.css" />
+		<div class="container">
+			<div class="panel panel-default col-md-12">
+				<div class="navbar navbar-inverse" role="navigation">
+					<div class="container">
+						<div class="collapse navbar-collapse">
+							<ui:repeat value="#{categoriaMb.listCategorias}"
+								var="listCategoria">
+								<h:form>
+									<ul id="menu_principal" class="nav navbar-nav">
+										<li><a href="##{listCategoria.nome}"> <h:outputText
+													value="#{listCategoria.nome}" /></a></li>
+									</ul>
+								</h:form>
+							</ui:repeat>
+						</div>
+					</div>
+				</div>
+				<ui:repeat value="#{categoriaMb.listCategorias}" var="listCategoria">
+					<div class="col-lg-12">
+						<div class="col-lg-12">
+							<hr></hr>
+							<a name="#{listCategoria.nome}"
+								class="intro-text text-center txtcategoria"> <strong><h:outputText
+										value="#{listCategoria.nome}" /></strong>
+							</a>
+							<hr></hr>
+						</div>
+						<div class="row ">
+							<ui:repeat value="#{anuncioMb.listarAnuncios(listCategoria)}"
+								var="listAnuncio">
+								<div class="col-md-4 col-md-6">
+									<div class="thumbnail">
+										<h:graphicImage class="imglogo"
+											value="#{anuncioMb.caminho(listAnuncio.logo)}" />
+										<div>
+											<h:outputLabel value="Nome:" />
+											<h:outputText value=" #{listAnuncio.nome}" />
+										</div>
+										<div>
+											<h:outputLabel value="Site:" />
+											<h:outputText value=" #{listAnuncio.site}" />
+										</div>
+										<div>
+											<h:outputLabel value="Local:" />
+											<h:outputText value=" #{listAnuncio.local}" />
+										</div>
+										<div>
+											<h:outputLabel value="Telefone:" />
+											<h:outputText value=" #{listAnuncio.telefone}" />
+										</div>
+										<div>
+											<h:outputLabel value="Descrição:" />
+											<h:outputText value=" #{listAnuncio.descricao}" />
+										</div>
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+				</ui:repeat>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<categoria id="1" nome="Categoria_Teste_01" />
+	<categoria id="2" nome="Categoria_Teste_02" />
+	<categoria id="3" nome="Categoria_Teste_03" />
+</dataset>

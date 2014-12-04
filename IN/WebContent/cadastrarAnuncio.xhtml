@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/base.xhtml">
+	<ui:define name="title">Inovar Divulgacoes</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="cadastrarDivulgacao.css" />
+		<div class="container">
+			<div class="panel panel-default col-md-12">
+				<div class="col-lg-12">
+					<h1></h1>
+					<h2 class="intro-text text-center">
+						<strong>Cadastro de Anuncios</strong>
+					</h2>
+				</div>
+				<h1></h1>
+				<h:form role="form" enctype="multipart/form-data">
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Nome" />
+						<h:inputText value="#{anuncioMb.anuncio.nome}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Site" />
+						<h:inputText value="#{anuncioMb.anuncio.site}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Logo" />
+						<h:inputFile value="#{anuncioMb.logo}" styleClass="form-control" />
+						<h:inputHidden value="#{anuncioMb.anuncio.logo}" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Local" />
+						<h:inputText value="#{anuncioMb.anuncio.local}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Telefone" />
+						<h:inputText value="#{anuncioMb.anuncio.telefone}"
+							styleClass="form-control" />
+					</div>
+					<div class="form-group col-md-4">
+						<h:outputLabel value="Categorias" />
+						<h:selectOneMenu value="#{anuncioMb.anuncio.categoria}"
+							styleClass="form-control col-md-4">
+							<f:selectItem itemValue="" itemLabel=" -- " />
+							<f:selectItems value="#{categoriaMb.listCategorias}"
+								var="categoria" itemLabel="#{categoria.nome}"
+								itemValue="#{categoria.nome}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="form-group col-md-12">
+						<h:outputLabel value="Descrição" />
+						<h:inputTextarea value="#{anuncioMb.anuncio.descricao}"
+							styleClass="form-control" rows="6" />
+					</div>
+					<h:commandButton action="#{anuncioMb.salvar}"
+						styleClass="btn btn-default botaoEnviar" value="Cadastrar" />
+				</h:form>
+			</div>
+		</div>
+		<ui:define name="rodape"></ui:define>
+	</ui:define>
+</ui:composition>
+</html>

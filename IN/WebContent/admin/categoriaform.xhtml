@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<h:outputStylesheet library="css" name="cadastrar.css"></h:outputStylesheet>
+	<ui:define name="title">Inovar Divulgacões</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="cadastrarCliente.css"></h:outputStylesheet>
+		<div class="panel panel-default col-md-12">
+			<div class="panel-body">
+				<h:form role="form">
+					<h:inputHidden value="#{categoriaMb.categoria.id}" />
+					<h:panelGroup rendered="#{not empty categoriaMb.categoria.id}">
+						<div class="form-group col-md-12">
+							<h:outputLabel value="Código" />
+							<h:inputText readonly="true" value="#{categoriaMb.categoria.id}"
+								styleClass="form-control" />
+						</div>
+					</h:panelGroup>
+					<div class="form-group col-md-12">
+						<h:outputLabel value="Nome" />
+						<h:inputText value="#{categoriaMb.categoria.nome}"
+							styleClass="form-control" />
+					</div>
+					<h:commandButton action="#{categoriaMb.salvar}"
+						styleClass="btn btn-default botaoEnviar" value="Salvar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
